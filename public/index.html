@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Network Speed Test</title>
+  </head>
+  <body>
+    <button id="startButton">Start Test</button>
+
+    <script>
+      document
+        .getElementById("startButton")
+        .addEventListener("click", async function () {
+          console.log("Test started...");
+          const response = await fetch("/speed-test");
+          const data = await response.json();
+          console.log("Download Speed:", data.downloadSpeed);
+          console.log("Upload Speed:", data.uploadSpeed);
+          console.log("Test completed.");
+        });
+    </script>
+  </body>
+</html>
